@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drum Machine</title>
+	
+	 <style>
+		#drum-machine{
+			border:4px solid #ffa500;
+  background-color:#b3b3b3;
+			width: 650px;
+			height: 320px;
+			margin: 0 auto;
+			padding:15px;
+		}
+		#container{
+			display: flex;
+		}
+		#pads{
+			width: 50%;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			padding: 20px; 
+		}
+		 .drum-pad{
+		 	height: 80px;
+		 	border:1px solid black;
+		 	 
+		 	margin: 4px;
+		 	background-color: #808080;
+		 	border-radius: 10px;
+
+		 }
+		 #details{
+		 	width: 50%;
+		 
+
+		 }
+		.drum-pad:active{
+			background-color: #ffa500;
+		}
+		#details #display{ 
+			width: 150px;
+			height: 50px;
+			 
+			background-color: #808080;
+			margin:40% auto;
+			border-radius: 10px;
+			text-align: center;
+
+
+
+		}
+		.drum-pad h1{
+			text-align: center;
+			font-size: 18px;
+			margin-top: 30px;
+
+			 
+
+		}
+		 #dis{
+		 
+			font-size: 20px;
+			padding-top: 10px;
+
+
+
+
+		}
+
+		  
+
+
+	
+		
+	</style>	
+	 
+</head>
+<body>
+
+
+	<div class="" id="drum-machine"  >
+		<div id="container" >
+			<div id="pads">
+				<div class="drum-pad" id="one" onclick="play(0);"><audio   class="clip" id="Q" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"  > </audio><h1 id="onex">Q</h1></div>
+			<div class="drum-pad" id="two"  onclick="play(1);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" class="clip" id="W"></audio><h1>W</h1></div>
+			<div class="drum-pad" id="three"  onclick="play(2);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" class="clip" id="E"></audio><h1>E</h1></div>
+			<div class="drum-pad" id="4"  onclick="play(3);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" class="clip" id="A"></audio><h1>A</h1></div>
+			<div class="drum-pad" id="5" onclick="play(4);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" class="clip" id="S"></audio><h1>S</h1></div>
+			<div class="drum-pad" id="6" onclick="play(5);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" class="clip" id="D"></audio><h1>D</h1></div>
+			<div class="drum-pad" id="7" onclick="play(6);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" class="clip" id="Z"></audio><h1>Z</h1></div>
+			<div class="drum-pad" id="8" onclick="play(7);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" class="clip" id="X"></audio><h1>X</h1></div>
+			<div class="drum-pad" id="9" onclick="play(8);"><audio src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" class="clip" id="C"></audio><h1>C</h1></div>
+		    </div>
+			<div id="details">
+				<div id="display"><h1 id="dis"> </h1></div>
+				
+			</div>
+
+
+		</div>
+
+	
+
+
+</div>
+
+
+
+
+	 
+ <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+
+<script type="text/javascript">
+
+let genre=["Heater-1","Heater-2","Heater-3","Heater-4","Clap","Open-HH","Lick-n\'-Hat","Kick","Closed-HH"];
+let id=["Q","W","E","A","S","D","Z","X","C"];
+	function play(n){
+
+
+		document.getElementById(id[n]).play();
+		
+
+	 
+		document.getElementById('dis').innerHTML=genre[n];
+
+	}
+	
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+     console.log(evt.key)
+     for(let i in id){
+     	if(evt.key.toUpperCase()===id[i]){
+     		document.getElementById(id[i]).play();
+     	}
+     }
+     
+};
+
+
+
+	 
+
+
+
+
+
+	
+</script>
+</body>
+</html>
